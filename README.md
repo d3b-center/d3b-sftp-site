@@ -1,2 +1,3 @@
-# d3b-sftp-site
-Configuration for AWS Transfer Family SFTP transfer server
+# D3b SFTP Transfer Site
+
+Configuration for SFTP transfer configuration, including authentication and user management

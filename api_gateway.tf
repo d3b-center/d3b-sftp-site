@@ -24,7 +24,7 @@ resource "aws_api_gateway_rest_api" "sftp_auth_rest_api" {
     create_before_destroy = true
   }
   tags = {
-    git_commit           = "67f6dc72856215c702d1198787a009f287326f30"
+    git_commit           = "2e2eb3f6a8f0173d5bcc32de7754ce4341cbe78b"
     git_file             = "api_gateway.tf"
     git_last_modified_at = "2022-11-03 20:09:03"
     git_last_modified_by = "blackdenc@chop.edu"
@@ -80,7 +80,7 @@ resource "aws_api_gateway_stage" "prod" {
   stage_name            = "prod"
   xray_tracing_enabled  = true
   tags = {
-    git_commit           = "67f6dc72856215c702d1198787a009f287326f30"
+    git_commit           = "2e2eb3f6a8f0173d5bcc32de7754ce4341cbe78b"
     git_file             = "api_gateway.tf"
     git_last_modified_at = "2022-11-03 20:09:03"
     git_last_modified_by = "blackdenc@chop.edu"

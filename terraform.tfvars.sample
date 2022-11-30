@@ -1,0 +1,15 @@
+# Add variables in this format
+
+bucket_name = "<New S3 bucket name>"
+domain_name = "<Route53 Domain Name>"
+
+sftp_users = {
+  test_user = {
+    Password   = "NotMyPassword"
+    BucketPath = "chop-data/test_user"
+  },
+  test_user2 = {
+    Password   = "DefinitleyNotMyPassword"
+    BucketPath = "d3b-center-data/test_user2"
+  }
+}

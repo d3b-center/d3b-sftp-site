@@ -2,9 +2,7 @@ name: IaC trace
 
 on:
   pull_request:
-    branches: [main]
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -18,4 +16,3 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: Run yor action and commit
         uses: bridgecrewio/yor-action@main
-          

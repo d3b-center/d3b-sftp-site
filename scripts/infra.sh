@@ -33,7 +33,9 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
             # Clear stale modules & remote state, then re-initialize
             rm -rf .terraform terraform.tfstate*
 
-            terraform init
+            terraform init \
+                -backend=true \
+                -backend-config=backend.conf
 
             terraform plan \
                 -compact-warnings \

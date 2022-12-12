@@ -2,7 +2,7 @@
 name: Lint Code Base
 on:
   pull_request:
-    branches: [main]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -19,6 +19,10 @@ jobs:
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: main
+          DEFAULT_BRANCH: master
+          VALIDATE_BASH: false
+          VALIDATE_JSCPD: false
           VALIDATE_MARKDOWN: false
+          VALIDATE_PYTHON_ISORT: false
+          VALIDATE_TERRAFORM_TFLINT: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

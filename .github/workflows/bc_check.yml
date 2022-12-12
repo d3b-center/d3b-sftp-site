@@ -2,12 +2,12 @@
 name: Run Bridgecrew
 on:
   pull_request:
-    branches: [main]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   bridgecrew:
-    name: Check ${{ matrix.account }} IaC rules
+    name: Check IaC rules
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it

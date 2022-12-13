@@ -31,9 +31,9 @@ resource "aws_lambda_function" "authentiation_lambda" {
     }
   }
   tags = {
-    git_commit           = "2e2eb3f6a8f0173d5bcc32de7754ce4341cbe78b"
+    git_commit           = "7aa18b4bd376c0691beab7672afd43d594462925"
     git_file             = "lambda.tf"
-    git_last_modified_at = "2022-11-03 20:09:03"
+    git_last_modified_at = "2022-12-13 19:00:06"
     git_last_modified_by = "blackdenc@chop.edu"
     git_modifiers        = "blackdenc"
     git_org              = "d3b-center"

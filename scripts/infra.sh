@@ -43,6 +43,11 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
             ;;
         apply)
             terraform apply "terraform.tfplan"
+
+            # Remove backend and vars after apply
+            rm -f \
+                backend.conf \
+                terraform.tfvars
             ;;
         *)
             echo "ERROR: I don't have support for that Terraform subcommand!"

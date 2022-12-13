@@ -5,6 +5,9 @@ data "archive_file" "lambda_zip" {
 }
 
 resource "aws_lambda_function" "authentiation_lambda" {
+  #checkov:skip=CKV_AWS_272:No definition for this rule
+  #checkov:skip=CKV_AWS_117:This function is intended for public-facing use by authorized users
+  #checkov:skip=CKV_AWS_116:TODO-Add dead-letter queue
   function_name = "${var.application}-${var.environment}"
   description   = "A function to lookup and return user data from AWS Secrets Manager."
 

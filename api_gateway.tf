@@ -4,6 +4,7 @@ resource "aws_api_gateway_deployment" "deployment" {
   lifecycle {
     create_before_destroy = true
   }
+
   depends_on = [
     aws_api_gateway_method_response.http_200
   ]
@@ -79,10 +80,16 @@ resource "aws_api_gateway_stage" "prod" {
   rest_api_id           = aws_api_gateway_rest_api.sftp_auth_rest_api.id
   stage_name            = "prod"
   xray_tracing_enabled  = true
+
+  depends_on = [
+    aws_api_gateway_deployment.deployment,
+    aws_api_gateway_rest_api.sftp_auth_rest_api
+  ]
+
   tags = {
-    git_commit           = "2e2eb3f6a8f0173d5bcc32de7754ce4341cbe78b"
+    git_commit           = "7aa18b4bd376c0691beab7672afd43d594462925"
     git_file             = "api_gateway.tf"
-    git_last_modified_at = "2022-11-03 20:09:03"
+    git_last_modified_at = "2022-12-13 19:00:06"
     git_last_modified_by = "blackdenc@chop.edu"
     git_modifiers        = "blackdenc"
     git_org              = "d3b-center"
@@ -121,7 +128,7 @@ resource "aws_api_gateway_method_response" "http_200" {
   status_code = "200"
   depends_on = [
     aws_api_gateway_model.user_config,
-    aws_api_gateway_method_response.http_200
+    aws_api_gateway_method.api_gateway_method
   ]
 
   response_models = {
@@ -160,8 +167,11 @@ resource "aws_api_gateway_method_settings" "all" {
   method_path = "*/*"
 
   settings {
-    metrics_enabled = true
-    logging_level   = "ERROR"
+    metrics_enabled      = true
+    logging_level        = "ERROR"
+    caching_enabled      = true
+    cache_data_encrypted = true
+    data_trace_enabled   = false
   }
 }
 

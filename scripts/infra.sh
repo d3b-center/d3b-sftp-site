@@ -33,7 +33,9 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
             # Clear stale modules & remote state, then re-initialize
             rm -rf .terraform terraform.tfstate*
 
-            terraform init
+            terraform init \
+                -backend=true \
+                -backend-config=backend.conf
 
             terraform plan \
                 -compact-warnings \
@@ -41,6 +43,11 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
             ;;
         apply)
             terraform apply "terraform.tfplan"
+
+            # Remove backend and vars after apply
+            rm -f \
+                backend.conf \
+                terraform.tfvars
             ;;
         *)
             echo "ERROR: I don't have support for that Terraform subcommand!"

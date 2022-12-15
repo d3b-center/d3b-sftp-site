@@ -2,20 +2,17 @@ name: IaC trace
 
 on:
   pull_request:
-    branches: [main]
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   yor:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Checkout repo
         with:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
       - name: Run yor action and commit
         uses: bridgecrewio/yor-action@main
-          

@@ -28,7 +28,7 @@ Steps to install and operate FileZilla to connect to an SFTP endpoint.
 
 1. Enter the provided information into the FileZilla client:
 
-   - Hostname: Enter the hostname provided without `http://` or `https://` (Ex. `sftp.d3b.io`)
+   - Hostname: Enter the hostname provided with `sftp://` in front (Ex. `sftp://sftp.d3b.io`)
    - Username: Enter the provided username.
    - Password: Enter the provided password. (Note: This is case-sensitive.)
    - Port: Leave this blank. (FileZilla will use the default SFTP port, 21)

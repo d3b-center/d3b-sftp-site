@@ -39,5 +39,6 @@ resource "aws_lambda_function" "authentiation_lambda" {
     git_org              = "d3b-center"
     git_repo             = "d3b-sftp-site"
     yor_trace            = "e4cbbd49-f19d-42a4-96c1-66cc7f8da834"
+    yor_name             = "authentiation_lambda"
   }
 }

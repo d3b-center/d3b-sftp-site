@@ -17,5 +17,6 @@ resource "aws_transfer_server" "sftp" {
     git_org              = "d3b-center"
     git_repo             = "d3b-sftp-site"
     yor_trace            = "e2efd52e-3b88-4312-864f-72d28b41db66"
+    yor_name             = "sftp"
   }
 }

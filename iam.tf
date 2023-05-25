@@ -10,6 +10,7 @@ resource "aws_iam_role" "sftp_transfer_server" {
     git_org              = "d3b-center"
     git_repo             = "d3b-sftp-site"
     yor_trace            = "df844783-299e-4704-9228-19365479172d"
+    yor_name             = "sftp_transfer_server"
   }
 }
 
@@ -31,6 +32,7 @@ resource "aws_iam_role" "sftp_transfer_server_invocation" {
     git_org              = "d3b-center"
     git_repo             = "d3b-sftp-site"
     yor_trace            = "8890500e-968d-4f49-b089-e26db805396e"
+    yor_name             = "sftp_transfer_server_invocation"
   }
 }
 
@@ -52,6 +54,7 @@ resource "aws_iam_role" "custom_lambda_authorization" {
     git_org              = "d3b-center"
     git_repo             = "d3b-sftp-site"
     yor_trace            = "556c7180-a664-4a75-8935-91532022357e"
+    yor_name             = "custom_lambda_authorization"
   }
 }
 

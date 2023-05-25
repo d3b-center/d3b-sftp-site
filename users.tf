@@ -10,6 +10,7 @@ resource "aws_secretsmanager_secret" "user" {
     git_org              = "d3b-center"
     git_repo             = "d3b-sftp-site"
     yor_trace            = "58b8ba4d-f4cc-4c89-91fe-80c273273cc2"
+    yor_name             = "user"
   }
 }
 

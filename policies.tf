@@ -91,8 +91,8 @@ data "aws_iam_policy_document" "sftp_transfer_server_invocation_policy" {
     ]
 
     resources = [
-      aws_s3_bucket.bucket.arn,
-      "${aws_s3_bucket.bucket.arn}/*"
+      data.aws_s3_bucket.bucket.arn,
+      "${data.aws_s3_bucket.bucket.arn}/*"
     ]
   }
 }
@@ -115,7 +115,7 @@ data "aws_iam_policy_document" "bucket_policy" {
     ]
 
     resources = [
-      "${aws_s3_bucket.bucket.arn}/*"
+      "${data.aws_s3_bucket.bucket.arn}/*"
     ]
   }
   statement {
@@ -132,7 +132,7 @@ data "aws_iam_policy_document" "bucket_policy" {
     ]
 
     resources = [
-      aws_s3_bucket.bucket.arn
+      data.aws_s3_bucket.bucket.arn
     ]
   }
   statement {
@@ -149,8 +149,8 @@ data "aws_iam_policy_document" "bucket_policy" {
     ]
 
     resources = [
-      "${aws_s3_bucket.bucket.arn}/*",
-      aws_s3_bucket.bucket.arn
+      "${data.aws_s3_bucket.bucket.arn}/*",
+      data.aws_s3_bucket.bucket.arn
     ]
 
     condition {
@@ -173,8 +173,8 @@ data "aws_iam_policy_document" "bucket_policy" {
     ]
 
     resources = [
-      "${aws_s3_bucket.bucket.arn}/*",
-      aws_s3_bucket.bucket.arn
+      "${data.aws_s3_bucket.bucket.arn}/*",
+      data.aws_s3_bucket.bucket.arn
     ]
   }
 }

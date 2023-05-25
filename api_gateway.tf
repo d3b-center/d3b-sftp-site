@@ -33,6 +33,7 @@ resource "aws_api_gateway_rest_api" "sftp_auth_rest_api" {
     git_org              = "d3b-center"
     git_repo             = "d3b-sftp-site"
     yor_trace            = "7c16b996-ae73-4586-a689-252b1e0c2d94"
+    yor_name             = "sftp_auth_rest_api"
   }
 }
 
@@ -95,6 +96,7 @@ resource "aws_api_gateway_stage" "prod" {
     git_org              = "d3b-center"
     git_repo             = "d3b-sftp-site"
     yor_trace            = "216e8f63-6bf5-4a69-9218-92abcc571962"
+    yor_name             = "prod"
   }
 }
 

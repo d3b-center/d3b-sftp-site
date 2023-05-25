@@ -10,6 +10,7 @@ resource "aws_secretsmanager_secret" "user" {
     git_org              = "d3b-center"
     git_repo             = "d3b-sftp-site"
     yor_trace            = "58b8ba4d-f4cc-4c89-91fe-80c273273cc2"
+    yor_name             = "user"
   }
 }
 
@@ -17,6 +18,6 @@ resource "aws_secretsmanager_secret_version" "user_data" {
   for_each  = var.sftp_users
   secret_id = aws_secretsmanager_secret.user[each.key].id
   secret_string = jsonencode({
-    "Password" : "${each.value["Password"]}", "HomeDirectoryDetails" : "[{\"Entry\": \"/\", \"Target\": \"/${aws_s3_bucket.bucket.id}/${each.value["BucketPath"]}\"}]", "Role" : "${aws_iam_role.sftp_transfer_server_invocation.arn}"
+    "Password" : "${each.value["Password"]}", "HomeDirectoryDetails" : "[{\"Entry\": \"/\", \"Target\": \"/${data.aws_s3_bucket.bucket.id}/${each.value["BucketPath"]}\"}]", "Role" : "${aws_iam_role.sftp_transfer_server_invocation.arn}"
   })
 }

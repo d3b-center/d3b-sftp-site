@@ -1,5 +1,5 @@
 resource "aws_iam_role" "sftp_transfer_server" {
-  name               = "${var.org}-sftp-transfer-server-role"
+  name               = "${var.org}-sftp-${var.application}-role"
   assume_role_policy = data.aws_iam_policy_document.sftp_assume_role_policy.json
   tags = {
     git_commit           = "2e2eb3f6a8f0173d5bcc32de7754ce4341cbe78b"
@@ -15,13 +15,13 @@ resource "aws_iam_role" "sftp_transfer_server" {
 }
 
 resource "aws_iam_role_policy" "sftp_transfer_server" {
-  name   = "${var.org}-sftp-transfer-server-policy"
+  name   = "${var.org}-sftp-${var.application}-policy"
   role   = aws_iam_role.sftp_transfer_server.id
   policy = data.aws_iam_policy_document.sftp_logging_policy.json
 }
 
 resource "aws_iam_role" "sftp_transfer_server_invocation" {
-  name               = "${var.org}-sftp-transfer-server-invocation-role"
+  name               = "${var.org}-sftp-${var.application}-invocation-role"
   assume_role_policy = data.aws_iam_policy_document.sftp_assume_role_policy.json
   tags = {
     git_commit           = "2e2eb3f6a8f0173d5bcc32de7754ce4341cbe78b"
@@ -37,13 +37,13 @@ resource "aws_iam_role" "sftp_transfer_server_invocation" {
 }
 
 resource "aws_iam_role_policy" "sftp_transfer_server_invocation" {
-  name   = "${var.org}-sftp-transfer-server-invocation-policy"
+  name   = "${var.org}-sftp-${var.application}-invocation-policy"
   role   = aws_iam_role.sftp_transfer_server_invocation.id
   policy = data.aws_iam_policy_document.sftp_transfer_server_invocation_policy.json
 }
 
 resource "aws_iam_role" "custom_lambda_authorization" {
-  name               = "${var.org}-lambda-authorizaion-role"
+  name               = "${var.org}-${var.application}-authorizaion-role"
   assume_role_policy = data.aws_iam_policy_document.lambda_assume_role_policy.json
   tags = {
     git_commit           = "2e2eb3f6a8f0173d5bcc32de7754ce4341cbe78b"
@@ -59,7 +59,7 @@ resource "aws_iam_role" "custom_lambda_authorization" {
 }
 
 resource "aws_iam_role_policy" "custom_lambda_secrets_policy" {
-  name   = "${var.org}-lambda-authorization-secrets-policy"
+  name   = "${var.org}-${var.application}-authorization-secrets-policy"
   role   = aws_iam_role.custom_lambda_authorization.id
   policy = data.aws_iam_policy_document.lambda_secrets_policy.json
 }
